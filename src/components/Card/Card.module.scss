@@ -83,13 +83,8 @@
 
   .button {
     width: 100%;
-    border: none;
-    background-color: $color-primary;
-    color: $color-secondary;
-    @include subtitle($base-text);
-    padding: $padding-lg;
-    border-radius: $border-radius-2;
-    cursor: pointer;
+
+    @include button;
   }
 
   @include lg {

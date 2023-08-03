@@ -1,5 +1,32 @@
-.container {
-  @include flexbox-hrz(20px);
-  flex-wrap: wrap;
-  padding: 30px;
+.section {
+  @include flexbox-vrt(10px);
+  padding-top: $padding-gen;
+  padding-bottom: calc(6 * $padding-gen);
+
+  .container {
+    @include flexbox-hrz(20px);
+    flex-wrap: wrap;
+    padding: 30px;
+  }
+
+  .button {
+    @include button;
+    width: 300px;
+  }
+
+  @include lg {
+    gap: 50px;
+  }
+
+  @include md {
+    gap: 30px;
+  }
+
+  @include xl {
+    gap: 50px;
+  }
+
+  @include xxl {
+    gap: 50px;
+  }
 }

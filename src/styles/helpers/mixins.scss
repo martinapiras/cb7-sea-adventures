@@ -46,3 +46,13 @@
   font-size: $size;
   font-weight: 700;
 }
+
+@mixin button {
+  border: none;
+  background-color: $color-primary;
+  color: $color-secondary;
+  @include subtitle($base-text);
+  padding: $padding-lg;
+  border-radius: $border-radius-2;
+  cursor: pointer;
+}
