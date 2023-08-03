@@ -4,8 +4,12 @@ import Hero from "@/components/Hero";
 import Banner from "@/components/Banner";
 import Card from "@/components/Card";
 import styles from "@/styles/Home.module.scss";
+import { useState } from "react";
 
 export default function Home() {
+  const [list, setList] = useState(data.slice(0, 8));
+  const showMore = () => setList(data.slice(0, list.length + 8));
+
   return (
     <>
       <Head>
@@ -15,11 +19,18 @@ export default function Home() {
         <link rel="icon" href="/logo.svg" />
       </Head>
       <Hero />
-      <div className={`${styles.container} col-12`}>
-        {data.map((trip) => (
-          <Card data={trip} />
-        ))}
-      </div>
+      <section className={`${styles.section} col-12`}>
+        <div className={`${styles.container} col-12`}>
+          {list.map((trip) => (
+            <Card data={trip} key={trip.id} />
+          ))}
+        </div>
+        {list.length !== data.length && (
+          <button className={styles.button} onClick={showMore}>
+            {"Mostra altri".toUpperCase()}
+          </button>
+        )}
+      </section>
       <Banner />
     </>
   );
