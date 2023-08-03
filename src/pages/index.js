@@ -1,4 +1,6 @@
 import Head from "next/head";
+import Hero from "@/components/Hero";
+import Banner from "@/components/Banner";
 import styles from "@/styles/Home.module.scss";
 
 export default function Home() {
@@ -10,7 +12,8 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/logo.svg" />
       </Head>
-      <h1>Sea Adventures!</h1>
+      <Hero />
+      <Banner />
     </>
   );
 }

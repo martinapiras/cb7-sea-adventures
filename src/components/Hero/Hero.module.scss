@@ -1,0 +1,56 @@
+.Hero {
+  position: relative;
+  height: 60dvh;
+
+  .bg {
+    object-fit: cover;
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  .title {
+    @include subtitle($h1);
+    color: $color-secondary;
+    position: absolute;
+    width: 80%;
+    text-align: center;
+    left: 50%;
+    top: 45%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+
+    @include md {
+      top: 50%;
+    }
+    @include lg {
+      top: 50%;
+    }
+    @include xl {
+      top: 50%;
+    }
+    @include xxl {
+      top: 50%;
+    }
+  }
+
+  .overlay {
+    @include dimensions(100%, 100%);
+    background-color: $color-dark;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.5;
+  }
+
+  @include lg {
+    min-height: calc(100dvh - 400px);
+  }
+
+  @include xl {
+    min-height: calc(100dvh - 400px);
+  }
+
+  @include xxl {
+    min-height: calc(100dvh - 400px);
+  }
+}
