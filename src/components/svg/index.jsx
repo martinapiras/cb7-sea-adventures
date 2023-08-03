@@ -1,2 +1,3 @@
 import Logo from "./Logo";
-export { Logo };
+import RightArrow from "./RightArrow";
+export { Logo, RightArrow };

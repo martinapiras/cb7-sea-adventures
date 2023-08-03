@@ -1,1 +1,5 @@
-
+.container {
+  @include flexbox-hrz(20px);
+  flex-wrap: wrap;
+  padding: 30px;
+}

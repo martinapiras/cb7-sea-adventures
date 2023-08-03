@@ -1,0 +1,116 @@
+.Card {
+  background-color: $color-secondary;
+  height: 350px;
+  border-radius: $border-radius-3;
+  padding: ($padding-gen * 2);
+  @include flexbox-vrt(15px);
+  align-items: flex-start;
+
+  .price {
+    width: fit-content;
+    @include flexbox-hrz(8px);
+
+    .bold {
+      @include subtitle($base-text);
+    }
+
+    .small {
+      font-size: $h5;
+    }
+  }
+
+  .mainInfo {
+    width: 100%;
+    @include flexbox-hrz(0);
+    flex-wrap: wrap;
+
+    .departure {
+      @include flexbox-vrt(0);
+      align-items: flex-start;
+      width: 55%;
+
+      p {
+        color: $color-light;
+      }
+    }
+
+    .boat {
+      width: 45%;
+      @include subtitle($h5);
+      @include flexbox-vrt(0);
+      align-items: flex-end;
+
+      p {
+        width: 70%;
+      }
+    }
+
+    .time {
+      width: 100%;
+      padding-top: $padding-gen;
+      @include flexbox-hrz(10px);
+
+      p {
+        width: 33.33%;
+        @include flexbox-vrt(0);
+
+        .time {
+          color: $color-light;
+        }
+      }
+
+      .icon {
+        svg {
+          width: $h3;
+          height: auto;
+        }
+      }
+    }
+
+    .reservations {
+      width: 100%;
+      .availability {
+        .title {
+          color: $color-light;
+        }
+
+        .number {
+          @include subtitle($base-text);
+        }
+      }
+    }
+  }
+
+  .button {
+    width: 100%;
+    border: none;
+    background-color: $color-primary;
+    color: $color-secondary;
+    @include subtitle($base-text);
+    padding: $padding-lg;
+    border-radius: $border-radius-2;
+    cursor: pointer;
+  }
+
+  @include lg {
+    width: 300px;
+    padding: $padding-gen;
+
+    .mainInfo {
+      .departure {
+        width: 58%;
+      }
+
+      .boat {
+        width: 42%;
+      }
+    }
+  }
+
+  @include xl {
+    width: 300px;
+  }
+  @include xxl {
+    width: 300px;
+  }
+}
