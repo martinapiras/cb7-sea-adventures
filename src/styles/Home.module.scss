@@ -14,6 +14,29 @@
     width: 300px;
   }
 
+  .title {
+    margin-bottom: -30px;
+    width: 100%;
+    padding: 20px 40px;
+    text-align: left;
+
+    @include md {
+      margin-bottom: -60px;
+    }
+
+    @include lg {
+      margin-bottom: -60px;
+    }
+
+    @include xl {
+      margin-bottom: -60px;
+    }
+
+    @include xxl {
+      margin-bottom: -60px;
+    }
+  }
+
   @include lg {
     gap: 50px;
   }

@@ -1,14 +1,20 @@
+import { useEffect, useState } from "react";
 import Head from "next/head";
 import { data } from "@/mocks/data.js";
+import { shuffle } from "@/utils/fn";
 import Hero from "@/components/Hero";
 import Banner from "@/components/Banner";
 import Card from "@/components/Card";
 import styles from "@/styles/Home.module.scss";
-import { useState } from "react";
 
 export default function Home() {
   const [list, setList] = useState(data.slice(0, 8));
   const showMore = () => setList(data.slice(0, list.length + 8));
+  const [randomList, setRandomList] = useState(data);
+
+  useEffect(() => {
+    setRandomList(shuffle(data).slice(0, 8));
+  }, []);
 
   return (
     <>
@@ -32,6 +38,13 @@ export default function Home() {
         )}
       </section>
       <Banner />
+      <section className={`${styles.section} col-12`}>
+        <h2 className={styles.title}>Avventure da scoprire</h2>
+        <div className={`${styles.container} col-12`}>
+          {randomList.length === 8 &&
+            randomList.map((trip) => <Card data={trip} key={trip.id} />)}
+        </div>
+      </section>
     </>
   );
 }

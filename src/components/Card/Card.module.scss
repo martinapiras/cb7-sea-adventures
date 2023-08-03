@@ -50,16 +50,19 @@
       padding-top: $padding-gen;
       @include flexbox-hrz(10px);
 
-      p {
+      .text {
         width: 33.33%;
         @include flexbox-vrt(0);
 
         .time {
           color: $color-light;
+          padding: 0;
         }
       }
 
       .icon {
+        width: 33.33%;
+        @include flexbox-vrt(0);
         svg {
           width: $h3;
           height: auto;

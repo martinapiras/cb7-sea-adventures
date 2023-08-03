@@ -27,7 +27,7 @@ const Card = ({ data }) => {
           </p>
         </div>
         <div className={styles.time}>
-          <p>
+          <p className={styles.text}>
             <span>
               {departureDate.toLocaleString("it-IT", {
                 day: "2-digit",
@@ -45,7 +45,7 @@ const Card = ({ data }) => {
           <p className={styles.icon}>
             <RightArrow />
           </p>
-          <p>
+          <p className={styles.text}>
             <span>
               {arrivalDate.toLocaleString("it-IT", {
                 day: "2-digit",
