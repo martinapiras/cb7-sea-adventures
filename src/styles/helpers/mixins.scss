@@ -35,3 +35,13 @@
   width: $w;
   height: $h;
 }
+
+@mixin subtitle($size) {
+  font-size: $size;
+  font-weight: 600;
+}
+
+@mixin title($size) {
+  font-size: $size;
+  font-weight: 700;
+}
