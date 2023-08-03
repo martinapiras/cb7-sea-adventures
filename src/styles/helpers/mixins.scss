@@ -1,5 +1,6 @@
 @mixin flexbox-hrz($gap) {
   display: flex;
+  flex-direction: row;
   justify-content: safe center;
   align-items: safe center;
   gap: $gap;

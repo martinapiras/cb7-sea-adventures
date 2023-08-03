@@ -1,0 +1,64 @@
+.Banner {
+  position: relative;
+  height: 80dvh;
+  color: $color-secondary;
+
+  .bg {
+    object-fit: cover;
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  .content {
+    position: absolute;
+    @include dimensions(80%, 100%);
+    @include flexbox-vrt(50px);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+
+    @include md {
+      @include flexbox-hrz(100px);
+    }
+
+    @include lg {
+      @include flexbox-hrz(100px);
+    }
+
+    @include xl {
+      @include flexbox-hrz(100px);
+    }
+
+    @include xxl {
+      @include flexbox-hrz(100px);
+    }
+
+    .text {
+      @include subtitle($h1);
+      @include flexbox-vrt(10px);
+      text-align: center;
+      z-index: 5;
+    }
+  }
+
+  .overlay {
+    @include dimensions(100%, 100%);
+    background-color: $color-dark;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.5;
+  }
+
+  @include lg {
+    min-height: calc(100dvh - 400px);
+  }
+
+  @include xl {
+    min-height: calc(100dvh - 400px);
+  }
+
+  @include xxl {
+    min-height: calc(100dvh - 400px);
+  }
+}

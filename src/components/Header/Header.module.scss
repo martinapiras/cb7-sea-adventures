@@ -2,9 +2,9 @@
   background-color: $color-secondary;
   position: fixed;
   top: 0;
-  width: 100%;
   height: 100px;
   padding: $padding-gen;
+  z-index: 100;
 
   @include xs {
     height: 90px;
