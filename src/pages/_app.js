@@ -4,7 +4,7 @@ import "@/styles/globals.scss";
 
 const notoSans = Noto_Sans({
   subsets: ["latin"],
-  weight: ["300", "400", "700"],
+  weight: ["300", "400", "600", "700"],
   style: ["normal", "italic"],
 });
 
