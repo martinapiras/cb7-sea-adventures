@@ -8,4 +8,9 @@
 
 body {
   color: $color-primary;
+
+  @include xxl {
+    max-width: 2160px;
+    margin: 0 auto;
+  }
 }

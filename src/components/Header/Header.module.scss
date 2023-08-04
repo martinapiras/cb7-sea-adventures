@@ -15,4 +15,9 @@
     height: 100%;
     @extend %center-content;
   }
+
+  @include xxl() {
+    max-width: 2160px;
+    margin: 0 auto;
+  }
 }
