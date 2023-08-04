@@ -107,8 +107,11 @@
 
   @include xl {
     width: 300px;
+    flex-basis: 20%;
   }
+
   @include xxl {
     width: 300px;
+    flex-basis: 20%;
   }
 }

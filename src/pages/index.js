@@ -8,6 +8,18 @@ import Banner from "@/components/Banner";
 import Card from "@/components/Card";
 import styles from "@/styles/Home.module.scss";
 
+const ports = [
+  "Favignana",
+  "Lampedusa",
+  "Lipari",
+  "Marsala",
+  "Palermo",
+  "Pantelleria",
+  "Salina",
+  "San Vito lo Capo",
+  "Ustica",
+];
+
 export default function Home() {
   const [list, setList] = useState(data.slice(0, 8));
   const [randomList, setRandomList] = useState([...data]);
@@ -17,18 +29,6 @@ export default function Home() {
   const [selectedValue, setSelectedValue] = useState("Mostra tutti");
   const [selectedPort, setSelectedPort] = useState("");
   const [isDisabled, setIsDisabled] = useState(true);
-
-  const ports = [
-    "Favignana",
-    "Lampedusa",
-    "Lipari",
-    "Marsala",
-    "Palermo",
-    "Pantelleria",
-    "Salina",
-    "San Vito lo Capo",
-    "Ustica",
-  ];
 
   const handleChosenList = (port) => {
     setIsOpen(false);
@@ -52,75 +52,84 @@ export default function Home() {
       </Head>
       <Hero />
       <section className={`${styles.section} col-12`}>
-        <div className={styles.row}>
-          <div
-            className={styles.dropdownContainer}
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            <div className={`${styles.menu} ${isOpen && styles.openMenu}`}>
-              <span className={styles.text}>{selectedValue}</span>
-              <span className={`${styles.icon} ${isOpen && styles.openIcon}`}>
-                <ChevronDown />
-              </span>
-            </div>
-            <div className={styles.dropdown}>
-              {isOpen && (
-                <ul className={styles.list}>
-                  <li
-                    className={styles.option}
-                    onClick={(e) => {
-                      setShowSorted(false);
-                      setIsOpen(false);
-                      setIsDisabled(true);
-                      setSelectedValue(e.target.innerText);
-                      setList(data.slice(0, 8));
-                    }}
-                  >
-                    Mostra tutti
-                  </li>
-                  <li
-                    className={styles.option}
-                    onClick={(e) => {
-                      setShowSorted(true);
-                      setIsDisabled(false);
-                      setIsOpen(false);
-                      setSelectedValue(e.target.innerText);
-                    }}
-                  >
-                    Mostra per porto di partenza
-                  </li>
-                </ul>
-              )}
-            </div>
-          </div>
-          <div
-            className={`${styles.dropdownContainer} ${
-              isDisabled && styles.disabled
-            }`}
-            onClick={!isDisabled ? () => setIsOpenPort(!isOpenPort) : undefined}
-          >
-            <div className={`${styles.menu} ${isOpenPort && styles.openMenu}`}>
-              <span className={styles.text}>{selectedPort}</span>
-              <span
-                className={`${styles.icon} ${isOpenPort && styles.openIcon}`}
-              >
-                <ChevronDown />
-              </span>
-            </div>
-            <div className={styles.dropdown}>
-              {isOpenPort && (
-                <ul className={styles.list}>
-                  {ports.map((port, i) => (
+        <div className={styles.rowContainer}>
+          <div className={styles.row}>
+            <div
+              className={styles.dropdownContainer}
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              <div className={`${styles.menu} ${isOpen && styles.openMenu}`}>
+                <span className={styles.text}>{selectedValue}</span>
+                <span className={`${styles.icon} ${isOpen && styles.openIcon}`}>
+                  <ChevronDown />
+                </span>
+              </div>
+              <div className={styles.dropdown}>
+                {isOpen && (
+                  <ul className={styles.list}>
                     <li
                       className={styles.option}
-                      key={i}
-                      onClick={(e) => handleChosenList(e.target.innerText)}
+                      onClick={(e) => {
+                        setShowSorted(false);
+                        setIsOpen(false);
+                        setIsDisabled(true);
+                        setSelectedPort("");
+                        setSelectedValue(e.target.innerText);
+                        setList(data.slice(0, 8));
+                      }}
                     >
-                      {port}
+                      Mostra tutti
                     </li>
-                  ))}
-                </ul>
-              )}
+                    <li
+                      className={styles.option}
+                      onClick={(e) => {
+                        setShowSorted(true);
+                        setIsDisabled(false);
+                        setIsOpen(false);
+                        setSelectedValue(e.target.innerText);
+                      }}
+                    >
+                      Mostra per porto di partenza
+                    </li>
+                  </ul>
+                )}
+              </div>
+            </div>
+            <div
+              className={`${styles.dropdownContainer} ${
+                isDisabled && styles.disabled
+              }`}
+              onClick={
+                !isDisabled ? () => setIsOpenPort(!isOpenPort) : undefined
+              }
+            >
+              <div
+                className={`${styles.menu} ${isOpenPort && styles.openMenu}`}
+              >
+                <span className={styles.text}>
+                  {selectedPort ? selectedPort : "Seleziona il porto"}
+                </span>
+                <span
+                  className={`${styles.icon} ${isOpenPort && styles.openIcon}`}
+                >
+                  <ChevronDown />
+                </span>
+              </div>
+              <div className={styles.dropdown}>
+                {isOpenPort && (
+                  <ul className={styles.list}>
+                    {ports.map((port, i) => (
+                      <li
+                        className={styles.option}
+                        key={i}
+                        onClick={(e) => handleChosenList(e.target.innerText)}
+                      >
+                        {port}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
             </div>
           </div>
         </div>
