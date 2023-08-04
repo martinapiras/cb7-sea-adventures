@@ -118,6 +118,15 @@ export default function Home() {
               <div className={styles.dropdown}>
                 {isOpenPort && (
                   <ul className={styles.list}>
+                    <li
+                      className={styles.option}
+                      onClick={() => {
+                        setList(data);
+                        setSelectedPort("");
+                      }}
+                    >
+                      Mostra tutti
+                    </li>
                     {ports.map((port, i) => (
                       <li
                         className={styles.option}
