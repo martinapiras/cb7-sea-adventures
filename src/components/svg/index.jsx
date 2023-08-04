@@ -1,3 +1,4 @@
 import Logo from "./Logo";
 import RightArrow from "./RightArrow";
-export { Logo, RightArrow };
+import ChevronDown from "./ChevronDown";
+export { Logo, RightArrow, ChevronDown };
